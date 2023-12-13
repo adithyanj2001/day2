@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    /* Custom CSS */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([10.8505, 76.2711], 8); // Centered at Kerala
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+  }).addTo(map);
+
+  // Add markers or polygons for each district or place with Leaflet.js
+
+  // Example Marker
+  L.marker([10.8505, 76.2711]).addTo(map) // Sample marker for Kochi
+    .bindPopup('<b>Kochi</b><br>This is a sample marker.')
+    .openPopup();
+</script>
+
+</body>
+</html>
